@@ -1,32 +1,54 @@
 import 'dart:math';
 import 'package:finance_tracker/screens/home/view/main_screen.dart';
-
+import 'package:finance_tracker/screens/stats/stats.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  int index = 0;
+  late Color selectedItem;
+  Color unselectedItem = Colors.grey;
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    selectedItem = Theme.of(context).colorScheme.primary;
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[200], // Light grey background
+      backgroundColor: Colors.grey[200],
       bottomNavigationBar: ClipRRect(
         borderRadius: const BorderRadius.vertical(
           top: Radius.circular(30),
         ),
         child: BottomNavigationBar(
+          onTap: (value) {
+            setState(() {
+              index = value;
+            });
+          },
           backgroundColor: Colors.white,
           showSelectedLabels: false,
           showUnselectedLabels: false,
           elevation: 3,
-          items: const [
+          items: [
             BottomNavigationBarItem(
-              icon: Icon(CupertinoIcons.home),
+              icon: Icon(CupertinoIcons.home,
+                  color: index == 0 ? selectedItem : unselectedItem),
               label: 'Home',
             ),
             BottomNavigationBarItem(
-              icon: Icon(CupertinoIcons.graph_square_fill),
+              icon: Icon(CupertinoIcons.graph_square_fill,
+                  color: index == 1 ? selectedItem : unselectedItem),
               label: 'Stats',
             ),
           ],
@@ -40,22 +62,20 @@ class HomeScreen extends StatelessWidget {
           width: 60,
           height: 60,
           decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              gradient: LinearGradient(
-                colors: [
-                  Theme.of(context).colorScheme.tertiary,
-                  Theme.of(context).colorScheme.secondary,
-                  Theme.of(context).colorScheme.primary,
-                ],
-                transform: const GradientRotation(pi / 4),
-              )
+            shape: BoxShape.circle,
+            gradient: LinearGradient(
+              colors: [
+                Theme.of(context).colorScheme.tertiary,
+                Theme.of(context).colorScheme.secondary,
+                Theme.of(context).colorScheme.primary,
+              ],
+              transform: const GradientRotation(pi / 4),
+            ),
           ),
-          child: const Icon(
-              CupertinoIcons.add
-          ),
+          child: const Icon(CupertinoIcons.add),
         ),
       ),
-      body: const MainScreen(),
+      body: index == 0 ? MainScreen() : StatScreen(),
     );
   }
 }
