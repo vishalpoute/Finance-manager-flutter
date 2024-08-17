@@ -1,6 +1,4 @@
 import 'package:finance_tracker/screens/stats/chart.dart';
-import 'package:fl_chart/fl_chart.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class StatScreen extends StatelessWidget {
@@ -10,12 +8,12 @@ class StatScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 25.0,vertical: 10),
+        padding: const EdgeInsets.symmetric(horizontal: 25.0, vertical: 10),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Text(
-                'Transaction',
+              'Transaction',
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
@@ -24,17 +22,17 @@ class StatScreen extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            SizedBox(
+            Container(
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.width,
-              // color: Colors.red,
-              child: const MyChart()
-
-              // BarChart(
-              //   BarChartData(
-              //
-              //   )
-              // ),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: const Padding(
+                  padding: EdgeInsets.fromLTRB(12, 20, 12, 12),
+                  child: MyChart()
+              ),
             )
           ],
         ),
