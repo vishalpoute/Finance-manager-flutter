@@ -10,7 +10,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(),
+      backgroundColor: Colors.grey[200], // Light grey background
       bottomNavigationBar: ClipRRect(
         borderRadius: const BorderRadius.vertical(
           top: Radius.circular(30),
@@ -35,12 +35,11 @@ class HomeScreen extends StatelessWidget {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
         onPressed: () {},
-
         shape: const CircleBorder(),
         child: Container(
           width: 60,
-            height: 60,
-            decoration: BoxDecoration(
+          height: 60,
+          decoration: BoxDecoration(
               shape: BoxShape.circle,
               gradient: LinearGradient(
                 colors: [
@@ -50,13 +49,13 @@ class HomeScreen extends StatelessWidget {
                 ],
                 transform: const GradientRotation(pi / 4),
               )
-            ),
-            child: const Icon(
-                CupertinoIcons.add
-            ),
+          ),
+          child: const Icon(
+              CupertinoIcons.add
+          ),
         ),
       ),
-      body:const MainScreen(),
+      body: const MainScreen(),
     );
   }
 }
