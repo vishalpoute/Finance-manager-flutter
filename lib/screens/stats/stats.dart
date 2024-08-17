@@ -1,3 +1,4 @@
+import 'package:finance_tracker/screens/stats/chart.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -23,15 +24,17 @@ class StatScreen extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            Container(
+            SizedBox(
               width: MediaQuery.of(context).size.width,
               height: MediaQuery.of(context).size.width,
               // color: Colors.red,
-              child: BarChart(
-                BarChartData(
+              child: const MyChart()
 
-                )
-              ),
+              // BarChart(
+              //   BarChartData(
+              //
+              //   )
+              // ),
             )
           ],
         ),
