@@ -1,3 +1,5 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:intl/intl.dart';
@@ -13,6 +15,16 @@ class _AddExpenseState extends State<AddExpense> {
   TextEditingController categoryController= TextEditingController();
   TextEditingController dateController= TextEditingController();
   DateTime selectDate = DateTime.now();
+
+  List<String> myCategoriesIcon =[
+    'entertainment',
+    'food',
+    'home',
+    'pet',
+    'shopping',
+    'tech',
+    'travel'
+  ];
 
   @override
   void initState() {
@@ -82,56 +94,107 @@ class _AddExpenseState extends State<AddExpense> {
                   showDialog(
                       context: context,
                       builder: (ctx) {
-                        return AlertDialog(
-                          content: Column(
-                        children:[
-                          TextFormField(
-                           // controller: dateController,
-                            textAlignVertical:  TextAlignVertical.center,
-                            readOnly: true,
-                            decoration: InputDecoration(
-                              filled: true,
-                              fillColor: Colors.white,
-                              hintText: "Name",
-                              border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(12),
-                                  borderSide: BorderSide.none
+                        bool isExpended = false;
+                        return StatefulBuilder(
+                          builder: (context,setState) {
+                            return AlertDialog(
+                              content: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  const Text(
+                                      'Create a category'
+                                  ),
+                                  TextFormField(
+                                    // controller: dateController,
+                                    textAlignVertical: TextAlignVertical.center,
+                                    // readOnly: true,
+                                    decoration: InputDecoration(
+                                      isDense: true,
+                                      filled: true,
+                                      fillColor: Colors.white,
+                                      hintText: "Name",
+                                      border: OutlineInputBorder(
+                                          borderRadius: BorderRadius.circular(
+                                              12),
+                                          borderSide: BorderSide.none
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(height: 16,),
+                                  TextFormField(
+                                    // controller: dateController,
+                                    onTap: () {
+                                      setState(() {
+                                        isExpended = !isExpended;
+                                      });
+                                    },
+                                    textAlignVertical: TextAlignVertical.center,
+                                    readOnly: true,
+                                    decoration: const InputDecoration(
+                                      isDense: true,
+                                      filled: true,
+                                      suffixIcon: Icon(
+                                        CupertinoIcons.chevron_down, size: 12,),
+                                      fillColor: Colors.white,
+                                      hintText: "Icon",
+                                      border: OutlineInputBorder(
+                                          borderRadius: BorderRadius.vertical(
+                                              top: Radius.circular(12)
+                                          ),
+                                          borderSide: BorderSide.none
+                                      ),
+                                    ),
+                                  ),
+                                  isExpended
+                                      ? Container(
+                                    width: MediaQuery.of(context).size.width,
+                                    height: 200,
+                                    decoration: const BoxDecoration(
+                                        color: Colors.white,
+                                        borderRadius: BorderRadius.vertical(
+                                            bottom: Radius.circular(12)
+                                        )
+                                    ),
+                                    child: ListView.builder(
+                                      itemCount: myCategoriesIcon.length,
+                                        itemBuilder: ( context , int i){
+                                        return Container(
+                                          width: 50,
+                                          height: 50,
+                                          decoration: BoxDecoration(
+                                            image: DecorationImage(
+                                              image: AssetImage(
+                                              'Asset/${myCategoriesIcon[i]}.png'
+                                            )
+                                          ),
+                                        ),
+                                        );
+                                        },
+                                    ),
+                                  )
+                                      : Container(),
+                                  SizedBox(height: 16,),
+                                  TextFormField(
+                                    // controller: dateController,
+                                    textAlignVertical: TextAlignVertical.center,
+                                    // readOnly: true,
+                                    decoration: InputDecoration(
+                                      isDense: true,
+                                      filled: true,
+                                      fillColor: Colors.white,
+                                      hintText: "Color",
+                                      border: OutlineInputBorder(
+                                          borderRadius: BorderRadius.circular(
+                                              12),
+                                          borderSide: BorderSide.none
+                                      ),
+                                    ),
+                                  ),
+                                  SizedBox(height: 16,),
+                                ],
                               ),
-                            ),
-                          ),
-                          SizedBox(height: 16,),
-                          TextFormField(
-                            // controller: dateController,
-                            textAlignVertical:  TextAlignVertical.center,
-                            readOnly: true,
-                            decoration: InputDecoration(
-                              filled: true,
-                              fillColor: Colors.white,
-                              hintText: "Name",
-                              border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(12),
-                                  borderSide: BorderSide.none
-                              ),
-                            ),
-                          ),
-                          SizedBox(height: 16,),
-                          TextFormField(
-                            // controller: dateController,
-                            textAlignVertical:  TextAlignVertical.center,
-                            readOnly: true,
-                            decoration: InputDecoration(
-                              filled: true,
-                              fillColor: Colors.white,
-                              hintText: "Name",
-                              border: OutlineInputBorder(
-                                  borderRadius: BorderRadius.circular(12),
-                                  borderSide: BorderSide.none
-                              ),
-                            ),
-                          ),
-                          SizedBox(height: 16,),
-                        ],
-                          ),
+                            );
+                          },
                         );
 
                       },

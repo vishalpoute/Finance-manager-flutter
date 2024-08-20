@@ -7,7 +7,7 @@ List<Map<String, dynamic>> transactionData = [
     'icon': const FaIcon(FontAwesomeIcons.burger ,color: Colors.white,),
     'color': Colors.yellow[700],
     'name': 'Food',
-    'totalAmount': '-45.00',
+    'totalAmount': '-55.00',
     'date': 'Today',
   },
   {
