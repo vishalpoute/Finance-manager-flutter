@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:intl/intl.dart';
 class AddExpense extends StatefulWidget {
@@ -24,6 +25,8 @@ class _AddExpenseState extends State<AddExpense> {
     'tech',
     'travel'
   ];
+
+
 
   @override
   void initState() {
@@ -94,6 +97,8 @@ class _AddExpenseState extends State<AddExpense> {
                           context: context,
                           builder: (ctx) {
                             bool isExpended = false;
+                            String iconSelected='';
+                            Color categoryColor=Colors.white;
                             return StatefulBuilder(
                               builder: (context,setState) {
                                 return AlertDialog(
@@ -154,48 +159,128 @@ class _AddExpenseState extends State<AddExpense> {
                                                 bottom: Radius.circular(12)
                                             )
                                         ),
-                                        child: ListView.builder(
-                                          itemCount: myCategoriesIcon.length,
-                                          itemBuilder: ( context , int i){
-                                            return Container(
-                                              width: 50,
-                                              height: 50,
-                                              decoration: BoxDecoration(
-                                                image: DecorationImage(
-                                                    image: AssetImage(
-                                                        'Asset/${myCategoriesIcon[i]}.png'
-                                                    )
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: GridView.builder(
+                                            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                                                crossAxisCount: 3,
+                                                mainAxisSpacing:5,
+                                            crossAxisSpacing: 5
+                                            ),
+                                            itemCount: myCategoriesIcon.length,
+                                            itemBuilder: ( context , int i){
+                                              return GestureDetector(
+                                                onTap: (){
+                                                  setState(() {
+                                                    iconSelected = myCategoriesIcon[i];
+                                                  });
+                                                },
+                                                child: Container(
+                                                  width: 50,
+                                                  height: 50,
+                                                  decoration: BoxDecoration(
+                                                    border: Border.all(
+                                                      width: 3,
+                                                      color: iconSelected == myCategoriesIcon[i]
+                                                          ? Colors.green
+                                                          : Colors.grey
+                                                    ),
+                                                    borderRadius :BorderRadius.circular(12),
+                                                    image: DecorationImage(
+                                                        image: AssetImage(
+                                                            'Asset/${myCategoriesIcon[i]}.png'
+                                                        )
+                                                    ),
+                                                  ),
                                                 ),
-                                              ),
-                                            );
-                                          },
+                                              );
+                                            },
+                                          ),
                                         ),
                                       )
                                           : Container(),
                                       const SizedBox(height: 16,),
                                       TextFormField(
                                         // controller: dateController,
+                                        onTap: (){
+                                          showDialog(
+                                              context: context,
+                                              builder: (ctx2)
+                                          {
+                                            return AlertDialog(
+                                              content :Column(
+                                                mainAxisSize: MainAxisSize.min,
+                                                children: [
+                                                 ColorPicker(
+                                                pickerColor:categoryColor,
+                                                onColorChanged: (value) {
+                                                  setState( (){
+                                                    categoryColor = value;
+                                                  });
+                                                },
+                                              ),
+                                                  SizedBox(
+                                                    width: double.infinity,
+                                                    height: 50,
+                                                    child: TextButton(onPressed: () {
+                                                      Navigator.pop(ctx2);
+                                                    },
+                                                        style: TextButton.styleFrom(
+                                                            backgroundColor: Colors.black
+                                                        ),
+                                                        child: const Text(
+                                                          'Save',
+                                                          style: TextStyle(
+                                                              fontSize: 22,
+                                                              color: Colors.white
+                                                          ),
+                                                        )
+                                                    ),
+                                                  )
+                                              ],
+                                              ),
+                                            );
+                                          }
+                                          );
+                                        },
                                         textAlignVertical: TextAlignVertical.center,
-                                        // readOnly: true,
+                                        readOnly: true,
                                         decoration: InputDecoration(
                                           isDense: true,
                                           filled: true,
-                                          fillColor: Colors.white,
+                                          fillColor: categoryColor,
                                           hintText: "Color",
                                           border: OutlineInputBorder(
-                                              borderRadius: BorderRadius.circular(
-                                                  12),
+                                              borderRadius: BorderRadius.circular(12),
                                               borderSide: BorderSide.none
                                           ),
                                         ),
                                       ),
                                       const SizedBox(height: 16,),
+                                      SizedBox(
+                                        width: double.infinity,
+                                        height: kToolbarHeight,
+                                        child :TextButton(onPressed: () {
+                                          //create category object
+                                          Navigator.pop(context);
+                                        },
+                                            style: TextButton.styleFrom(
+                                                backgroundColor: Colors.black
+                                            ),
+                                            child: const Text(
+                                              'Save',
+                                              style: TextStyle(
+                                                  fontSize: 22,
+                                                  color: Colors.white
+                                              ),
+                                            )
+                                        ),
+                                      )
                                     ],
                                   ),
                                 );
                               },
                             );
-
                           },
                         );
                       },
