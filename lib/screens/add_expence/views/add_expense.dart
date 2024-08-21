@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:intl/intl.dart';
@@ -38,7 +37,7 @@ class _AddExpenseState extends State<AddExpense> {
       child: Scaffold(
         backgroundColor: Colors.grey[100],
         appBar: AppBar(
-          backgroundColor: Theme.of(context).colorScheme.background,
+          backgroundColor: Theme.of(context).colorScheme.surface,
         ),
         body:  Padding(
           padding: const EdgeInsets.all(16.0),
@@ -223,7 +222,7 @@ class _AddExpenseState extends State<AddExpense> {
                       context: context,
                       initialDate: selectDate,
                       firstDate: DateTime.now(),
-                      lastDate: DateTime.now().add(Duration(days:365))
+                      lastDate: DateTime.now().add(const Duration(days:365))
                   );
                   if(newDate != null){
                     setState(() {

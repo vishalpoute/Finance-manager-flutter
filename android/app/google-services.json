@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "182129681793",
+    "project_id": "pfm-flutter",
+    "storage_bucket": "pfm-flutter.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:182129681793:android:040f0f0759670d0ea33480",
+        "android_client_info": {
+          "package_name": "com.example.finance_tracker"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAyO_7mZ4huoTYjPCtGCzk7Gi_Jvmes8uI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
