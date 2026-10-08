@@ -41,7 +41,7 @@
 //   }
 //
 //   static const FirebaseOptions web = FirebaseOptions(
-//     apiKey: 'AIzaSyBlNADbgcp9EOcnG79HlE_zDayj3JSILk0',
+//     apiKey: String.fromEnvironment('FIREBASE_API_KEY'),
 //     appId: '1:182129681793:web:77627a74571a0f74a33480',
 //     messagingSenderId: '182129681793',
 //     projectId: 'pfm-flutter',
@@ -50,7 +50,7 @@
 //   );
 //
 //   static const FirebaseOptions android = FirebaseOptions(
-//     apiKey: 'AIzaSyAyO_7mZ4huoTYjPCtGCzk7Gi_Jvmes8uI',
+//     apiKey: String.fromEnvironment('FIREBASE_API_KEY'),
 //     appId: '1:182129681793:android:040f0f0759670d0ea33480',
 //     messagingSenderId: '182129681793',
 //     projectId: 'pfm-flutter',
@@ -58,7 +58,7 @@
 //   );
 //
 //   static const FirebaseOptions ios = FirebaseOptions(
-//     apiKey: 'AIzaSyDnaG_4zcMV2Gi8JMqzGBuFpTKoSPHCHCM',
+//     apiKey: String.fromEnvironment('FIREBASE_API_KEY'),
 //     appId: '1:182129681793:ios:fb0b22ef51ae3e3da33480',
 //     messagingSenderId: '182129681793',
 //     projectId: 'pfm-flutter',
@@ -67,7 +67,7 @@
 //   );
 //
 //   static const FirebaseOptions macos = FirebaseOptions(
-//     apiKey: 'AIzaSyDnaG_4zcMV2Gi8JMqzGBuFpTKoSPHCHCM',
+//     apiKey: String.fromEnvironment('FIREBASE_API_KEY'),
 //     appId: '1:182129681793:ios:fb0b22ef51ae3e3da33480',
 //     messagingSenderId: '182129681793',
 //     projectId: 'pfm-flutter',
@@ -76,7 +76,7 @@
 //   );
 //
 //   static const FirebaseOptions windows = FirebaseOptions(
-//     apiKey: 'AIzaSyBlNADbgcp9EOcnG79HlE_zDayj3JSILk0',
+//     apiKey: String.fromEnvironment('FIREBASE_API_KEY'),
 //     appId: '1:182129681793:web:4886ddde856652fda33480',
 //     messagingSenderId: '182129681793',
 //     projectId: 'pfm-flutter',
