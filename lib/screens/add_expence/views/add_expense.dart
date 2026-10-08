@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
 import 'package:intl/intl.dart';
 class AddExpense extends StatefulWidget {
   const AddExpense({super.key});
@@ -64,7 +64,7 @@ class _AddExpenseState extends State<AddExpense> {
                     filled: true,
                     fillColor: Colors.white70,
                     prefixIcon: const Icon(
-                      FontAwesomeIcons.dollarSign,
+                      Icons.attach_money,
                       size: 16,
                       color: Colors.grey,
                     ),
@@ -87,7 +87,7 @@ class _AddExpenseState extends State<AddExpense> {
                   filled: true,
                   fillColor: Colors.white,
                   prefixIcon: const Icon(
-                    FontAwesomeIcons.list,
+                    Icons.list,
                     size: 16,
                     color: Colors.grey,
                   ),
@@ -285,7 +285,7 @@ class _AddExpenseState extends State<AddExpense> {
                         );
                       },
                       icon : const Icon(
-                        FontAwesomeIcons.plus,
+                        Icons.add,
                         size: 16,
                         color: Colors.grey,
                       )
@@ -320,7 +320,7 @@ class _AddExpenseState extends State<AddExpense> {
                   filled: true,
                   fillColor: Colors.white,
                   prefixIcon: const Icon(
-                    FontAwesomeIcons.clock,
+                    Icons.schedule,
                     size: 16,
                     color: Colors.grey,
                   ),
@@ -357,3 +357,4 @@ class _AddExpenseState extends State<AddExpense> {
     );
   }
 }
+

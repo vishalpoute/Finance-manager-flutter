@@ -11,11 +11,11 @@ class MyAppView extends StatelessWidget {
       title: "Finance Tracker",
       theme: ThemeData(
         colorScheme: ColorScheme.light(
-            surface: Colors.grey.shade400,
+            surface: const Color(0xFFF6F7FB),
             onSurface: Colors.black,
-          primary: const Color(0xFF00B2E7),
-          secondary: const Color(0xFFE064F7),
-          tertiary: const Color(0xF7F44914)
+          primary: const Color(0xFF5152D8),
+          secondary: const Color(0xFF8586EB),
+          tertiary: const Color(0xFF262766)
         ),
       ),
       home: const HomeScreen(),

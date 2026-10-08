@@ -26,7 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[200],
+      backgroundColor: const Color(0xFFF6F7FB),
       bottomNavigationBar: ClipRRect(
         borderRadius: const BorderRadius.vertical(
           top: Radius.circular(30),
@@ -38,9 +38,9 @@ class _HomeScreenState extends State<HomeScreen> {
             });
           },
           backgroundColor: Colors.white,
-          showSelectedLabels: false,
-          showUnselectedLabels: false,
-          elevation: 3,
+          showSelectedLabels: true,
+          showUnselectedLabels: true,
+          elevation: 0,
           items: [
             BottomNavigationBarItem(
               icon: Icon(CupertinoIcons.home,
@@ -79,7 +79,7 @@ class _HomeScreenState extends State<HomeScreen> {
               transform: const GradientRotation(pi / 4),
             ),
           ),
-          child: const Icon(CupertinoIcons.add),
+          child: const Icon(CupertinoIcons.add, color: Colors.white),
         ),
       ),
       body: index == 0 ? MainScreen() : StatScreen(),
