@@ -25,6 +25,12 @@ See [SECURITY.md](SECURITY.md) for local Firebase configuration and API-key hand
 
 The dashboard uses sample values. Several unfinished BLoC files remain in the repository; this is a UI prototype rather than a production finance service.
 
+## Interface preview
+
+![Finance dashboard with sample account data](https://heyvishal.antideploy.app/projects/finance.jpg)
+
+The preview shows the refreshed dashboard using sample balances and transactions. It demonstrates the interface, not a connected bank account or a released finance service.
+
 ## Author
 
 [Vishal Poute](https://github.com/vishalpoute) · [Portfolio](https://heyvishal.antideploy.app)
